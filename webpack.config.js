@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/assets/app.js',
+  entry: './src/assets/index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'index_bundle.js'
