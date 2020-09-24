@@ -5,7 +5,11 @@ const store = {
   filter: 0
 };
 
+const addBookmark = function (bookmark) {
+  this.store.bookmarks.push(bookmark);
+};
 
 export default {
-  store
+  store,
+  addBookmark
 };

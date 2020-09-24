@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import api from './api';
 
 import store from './store';
 
@@ -17,11 +18,11 @@ const headerTemplateHTML = () => {
   </form>`;
 };
 
-const newBookMarkTemplate = () => {
+const newBookmarkTemplate = () => {
   if (store.store.adding) {
-    return `<form class="newBookMarkForm">
-    <label for="url"></label><input type="text" class="url" id="url" required placeholder="https://example.com">
-    <label for="title"></label><input type="text" class="title" id="title" required placeholder="name of bookmark">
+    return `<form class="newBookmarkForm">
+    <label for="url"></label><input type="text" name="url" class="url" id="url" required placeholder="https://example.com">
+    <label for="title"></label><input type="text" name="title" class="title" id="title" required placeholder="name of bookmark">
     <ul>
       <li><button>1</button></li>
       <li><button>2</button></li>
@@ -29,7 +30,9 @@ const newBookMarkTemplate = () => {
       <li><button>4</button></li>
       <li><button>5</button></li>
     </ul>
-    <label for="desc"></label><textarea class="desc" id="desc" required placeholder="description"></textarea></form>`;
+    <label for="desc"></label><textarea name="desc" class="desc" id="desc" required placeholder="description"></textarea>
+    <label for="newBookmarkSubmit"></label><input class="newBookmarkSubmit" type="submit" value="submit">
+    </form>`;
   } else {
     return '';
   }
@@ -41,11 +44,33 @@ const newBookMarkTemplate = () => {
 // html render functions
 const render = function () {
   let page = headerTemplateHTML();
-  page += newBookMarkTemplate();
+  page += newBookmarkTemplate();
   $('main').html(page);
 };
 
 // handlers
+$.fn.extend({
+  serializeJson: function () {
+    const formData = new FormData(this[0]);
+    const o = {};
+    formData.forEach((val, name) => o[name] = val);
+    return JSON.stringify(o);
+  }
+});
+
+const newBookmarkSubmitHandler = function () {
+  $('main').on('submit', '.newBookmarkForm', function (e) {
+    e.preventDefault();
+    let newBookmark = $(e.target).serializeJson();
+    api.createBookmark(newBookmark)
+      .then(bookmark => {
+        store.addBookmark(bookmark);
+        render();
+      });
+    render();
+  });
+};
+
 const newBookmarkHandler = () => {
   $('main').on('submit', '.newBookmark', () => {
     store.store.adding = !store.store.adding;
@@ -55,6 +80,7 @@ const newBookmarkHandler = () => {
 
 const bindEventHandlers = () => {
   newBookmarkHandler();
+  newBookmarkSubmitHandler();
 };
 
 // export
@@ -63,5 +89,6 @@ const bindEventHandlers = () => {
 
 export default {
   render,
-  bindEventHandlers
+  bindEventHandlers,
+
 };

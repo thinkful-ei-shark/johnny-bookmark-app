@@ -6,7 +6,7 @@ import api from './api';
 
 
 const main = function () {
-  api.getItems()
+  api.getBookmarks()
     .then(items => {
       console.log(items);
     });
