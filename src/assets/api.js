@@ -32,12 +32,16 @@ const createBookmark = (newBookmark) => {
     headers: new Headers({ 'Content-Type': 'application/json' }),
     body: newBookmark
   };
-  console.log(newBookmark);
   return listApiFetch(`${BASE_URL}`, options);
+};
+
+const deleteBookmark = (id) => {
+  return listApiFetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
 };
 
 
 export default {
   getBookmarks,
-  createBookmark
+  createBookmark,
+  deleteBookmark
 };
