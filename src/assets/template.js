@@ -55,17 +55,17 @@ const generateBookmarks = (bookmark) => {
 
   let html = `<li class="bookmark-item" data-bookmark-id="${bookmark.id}" id=${bookmark.id}>
   <h2 class="bookmark-title">${bookmark.title}</h2>
-  <a class="bookmark-url" href="${bookmark.url}">Visit Site</a>
+  <p class="bookmark-rating">Rating: <span>${initRating.join('')}</span></p>
   <button class="expandToggle">${expandToggle}</button>`;
 
   if (bookmark.expanded === true) {
     expandToggle = 'Collapse';
     html = `<li class="bookmark-item" data-bookmark-id="${bookmark.id}" id=${bookmark.id}>
     <h2 class="bookmark-title">${bookmark.title}</h2>
-    <a class="bookmark-url" href="${bookmark.url}">Visit Site</a>
+    <p class="bookmark-rating">Rating: <span>${initRating.join('')}</span></p>
     <button class="expandToggle">${expandToggle}</button>
     <p class="bookmark-desc">${bookmark.desc}</p>
-    <p class="bookmark-rating"><span>${initRating.join('')}</span></p>
+    <a class="bookmark-url" href="${bookmark.url}">Visit Site</a>
     <div class="bookmark-controls">
       <button class="bookmark-delete">Delete</button>
     </div>
