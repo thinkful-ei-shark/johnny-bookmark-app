@@ -121,3 +121,9 @@ li button {
 li h2 {
   text-shadow: 2px 2px 7px #247BA0;
 }
+
+@media all and (min-width: 800px) {
+  main {
+    margin: 0 30%;
+  }
+}
