@@ -1,0 +1,129 @@
+/* #605F5E - Davys Grey
+   #247ba0 - Celadon Blue
+   #e2e2e2 - Platinum
+*/
+
+body {
+  background-color: #e2e2e2;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 10px;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+  text-shadow: 2px 2px 7px #247BA0;
+}
+
+.newBookmark {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 5%;
+}
+
+.newBookmark p {
+  flex-grow: 5;
+}
+
+.newBookmark button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #2a93bf;
+  color: #e2e2e2;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  box-shadow: 0 6px #247BA0;
+  display: block;
+  position: relative;
+}
+
+.newBookmark button:hover {
+  box-shadow: 0 4px #247BA0;
+  top: 2px;
+}
+
+.newBookmark button:active {
+  box-shadow: 0 2px #247BA0;
+  top: 6px;
+}
+
+.newBookmark div select {
+  padding: 5px;
+}
+
+.newBookmarkForm {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 0 auto;
+  font-family: 'roboto', sans-serif;
+}
+
+.newBookmarkForm .newBookmarkSubmit {
+  width: 20%;
+  height: 10%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+li {
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin-bottom: 5%;
+  background-color: #605F5E;
+  color: #e2e2e2;
+  box-shadow: 6px 7px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+li button, li a {
+  margin-bottom: 5%;
+}
+
+li button {
+  margin-left: 30%;
+}
+
+li a {
+  border: 2px solid #e2e2e2;
+  background-color: #e2e2e2;
+  color: black;
+  border-radius: 3px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+li button {
+  border: 2px solid #e2e2e2;
+  border-radius: 3px;
+  font-family: 'roboto', sans-serif;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #e2e2e2;
+}
+
+li h2 {
+  text-shadow: 2px 2px 7px #247BA0;
+}
+
+@media all and (min-width: 800px) {
+  main {
+    margin: 0 30%;
+  }
+}
