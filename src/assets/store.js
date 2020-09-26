@@ -2,7 +2,7 @@ const store = {
   bookmarks: [],
   adding: false,
   error: null,
-  filter: 0
+  filter: 1
 };
 
 const addProp = () => {
@@ -18,12 +18,10 @@ const findById = function (id) {
 const bookmarkExpandToggle = function (id) {
   let foundBookmark = this.store.bookmarks.find(bookmark => bookmark.id === id);
   foundBookmark.expanded = !foundBookmark.expanded;
-  console.log(foundBookmark);
 };
 
 const addBookmark = function (bookmark) {
   this.store.bookmarks.push(bookmark);
-  console.log(store.bookmarks);
 };
 
 const deleteBookmark = function (id) {
@@ -32,7 +30,6 @@ const deleteBookmark = function (id) {
 
 const setFilter = function (filter) {
   this.store.filter = filter;
-  console.log('this is the store filter', this.store.filter);
 };
 
 const setError = function (error) {
